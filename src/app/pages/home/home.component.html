@@ -5,7 +5,7 @@
         <h1
             class="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl"
         >
-            Accounting<!-- -->
+            Accounting
             <span class="relative whitespace-nowrap text-blue-600">
                 <svg
                     aria-hidden="true"
@@ -19,31 +19,95 @@
                 </svg>
                 <span class="relative">made simple</span>
             </span>
-            <!-- -->for small businesses.
+            for small businesses.
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
             Most bookkeeping software is accurate, but hard to use. We make the
             opposite trade-off, and hope you don’t get audited.
         </p>
         <div class="mt-10 flex justify-center gap-x-6">
-            <a
+            <button
+                (click)="add(1)"
                 class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
-                routerLink="/register"
-                >Get 6 months free</a
             >
-            <a
-                class="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300"
-                href="#"
-                ><svg
-                    aria-hidden="true"
-                    class="h-3 w-3 flex-none fill-blue-600 group-active:fill-current"
+                Count: {{ count() }}
+            </button>
+        </div>
+
+        <div>
+            <div class="overflow-x-auto">
+                <table
+                    class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm"
                 >
-                    <path
-                        d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z"
-                    ></path>
-                </svg>
-                <span class="ml-3">Watch video</span></a
+                    <thead class="ltr:text-left rtl:text-right">
+                        <tr>
+                            <th
+                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+                            >
+                                Name
+                            </th>
+                            <th
+                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+                            >
+                                Date of Birth
+                            </th>
+                            <th
+                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+                            >
+                                Role
+                            </th>
+                            <th
+                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+                            >
+                                Salary
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-gray-200">
+                        <tr *ngFor="let item of data()">
+                            <td
+                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900"
+                            >
+                                {{ item.name }}
+                            </td>
+                            <td
+                                class="whitespace-nowrap px-4 py-2 text-gray-700"
+                            >
+                                {{ item.DoB }}
+                            </td>
+                            <td
+                                class="whitespace-nowrap px-4 py-2 text-gray-700"
+                            >
+                                {{ item.role }}
+                            </td>
+                            <td
+                                class="whitespace-nowrap px-4 py-2 text-gray-700"
+                            >
+                                {{ item.salary }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="mt-10 flex justify-center gap-x-6">
+            <button
+                (click)="update()"
+                class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
             >
+                update()
+            </button>
+
+            <button
+                (click)="mutate()"
+                class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900"
+            >
+                mutate()
+            </button>
+
+            
         </div>
         <div class="mt-36 lg:mt-44">
             <p class="font-display text-base text-slate-900">
